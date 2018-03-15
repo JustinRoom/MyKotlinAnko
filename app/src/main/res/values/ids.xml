@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Main-->
+    <item name="btn_template1" type="id"/>
+    <item name="btn_template2" type="id"/>
+    <item name="btn_fragment_template" type="id"/>
+    <item name="btn_component" type="id"/>
+
+    <!--Components-->
+    <item name="btn_arc_header_view" type="id"/>
+    <item name="btn_banner_view" type="id"/>
+    <item name="btn_month_view" type="id"/>
+    <item name="btn_rebound_layout" type="id"/>
+    <item name="btn_vertical_step_view" type="id"/>
+    <item name="btn_refresh_layout" type="id"/>
+    <item name="btn_jsc_round_corner_progress_bar" type="id"/>
+    <item name="btn_jsc_item_layout" type="id"/>
+
+    <!---->
+    <item name="fragment_container" type="id"/>
+</resources>
