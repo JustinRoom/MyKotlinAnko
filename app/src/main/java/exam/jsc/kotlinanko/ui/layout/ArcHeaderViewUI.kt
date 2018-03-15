@@ -1,9 +1,6 @@
 package exam.jsc.kotlinanko.ui.layout
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.view.View
-import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.ArcHeaderViewActivity
 import jsc.kit.lGradientArcHeaderView
 import jsc.kit.pictureArcHeaderView
