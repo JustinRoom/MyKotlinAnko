@@ -1,21 +1,22 @@
 package exam.jsc.kotlinanko.ui.layout
 
 import android.view.View
+import android.widget.LinearLayout
 import exam.jsc.kotlinanko.ui.activity.Template1Activity
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.textView
+import org.jetbrains.anko.verticalLayout
 
 /**
  * Created on 2018/3/15.
  * @author jsc
  */
-class Template1UI : AnkoComponent<Template1Activity>, ASupportToolbarUI() {
-    override fun createView(ui: AnkoContext<Template1Activity>): View = with(ui) {
+class Template1UI : BaseUI<Template1Activity>() {
+    override fun createContentView(ui: AnkoContext<Template1Activity>, root: LinearLayout): View = with(root) {
         verticalLayout {
-            fitsSystemWindows = true
-            initToolbar(this).lparams(width = matchParent, height = getActionBarSize(context))
-
             textView("Justin")
             textView("1006368252@qq.com")
         }
     }
+
 }
