@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="JSCItemLayout">
+        <attr name="il_icon" format="reference"/>
+        <attr name="il_label" format="string|reference"/>
+        <attr name="il_label_text_size" format="float|reference"/>
+        <attr name="il_label_text_color" format="color|reference"/>
+        <attr name="il_arrow_icon" format="reference"/>
+    </declare-styleable>
+
+</resources>

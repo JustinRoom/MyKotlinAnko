@@ -11,17 +11,21 @@ import android.util.AttributeSet
  * Created by Justin Qin on 3/15/2018.
  */
 class LGradientArcHeaderView : BaseArcHeaderView {
-    private var startColor: Int = 0xFFFF3A80.toInt()
-    private var endColor: Int = 0xFFFF3745.toInt()
-    override fun initShader(): Shader {
-            return LinearGradient(width / 2.0f, 0f, width / 2.0f, height * 1.0f, startColor, endColor, Shader.TileMode.MIRROR)
-    }
-
-    fun setColors(@ColorInt startColor: Int, @ColorInt endColor: Int) {
-        this.startColor = startColor
-        this.endColor = endColor
+    var startColor: Int = 0xFFFF3A80.toInt()
+    set(value) {
+        field = value
         resetShader()
         postInvalidate()
+    }
+    var endColor: Int = 0xFFFF3745.toInt()
+    set(value) {
+        field = value
+        resetShader()
+        postInvalidate()
+    }
+
+    override fun initShader(): Shader {
+            return LinearGradient(width / 2.0f, 0f, width / 2.0f, height * 1.0f, startColor, endColor, Shader.TileMode.MIRROR)
     }
 
     constructor(context: Context) : this(context, null)

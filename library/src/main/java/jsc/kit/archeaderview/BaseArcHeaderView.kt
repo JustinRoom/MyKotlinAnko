@@ -16,8 +16,21 @@ import android.view.View
 abstract class BaseArcHeaderView : View {
     private val path = Path()
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private var arcHeight: Int = 100
-    private var direction: Int = 0
+
+    var arcHeight: Int = 100
+    set(value) {
+        field = value
+        resetShader()
+        postInvalidate()
+    }
+
+    @IntRange(from = 0, to = 1)
+    var direction: Int = 0
+    set(value) {
+        field = value
+        postInvalidate()
+    }
+
     private var shader: Shader? = null
 
     abstract fun initShader(): Shader
@@ -32,17 +45,6 @@ abstract class BaseArcHeaderView : View {
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         resetShader()
-        postInvalidate()
-    }
-
-    fun setArcHeight(arcHeight: Int) {
-        this.arcHeight = arcHeight
-        resetShader()
-        postInvalidate()
-    }
-
-    fun setDirection(@IntRange(from = 0, to = 1) direction: Int) {
-        this.direction = direction
         postInvalidate()
     }
 

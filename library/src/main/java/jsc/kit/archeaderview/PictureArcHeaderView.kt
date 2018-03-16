@@ -12,6 +12,30 @@ import org.jetbrains.anko.assets
  */
 class PictureArcHeaderView : BaseArcHeaderView {
     private var bitmap: Bitmap? = null
+    var src: Any? = null
+    set(value) {
+        value?.let {
+            when(value){
+                is String ->{
+                    val options = BitmapFactory.Options()
+                    options.inPremultiplied = true
+                    bitmap = BitmapFactory.decodeStream(context.assets.open(value), null, options)
+                    update()
+                }
+
+                is @DrawableRes Int ->{
+                    bitmap = BitmapFactory.decodeResource(resources, value)
+                    update()
+                }
+
+                is Bitmap ->{
+                    bitmap = value
+                    update()
+                }
+            }
+        }
+    }
+
     override fun initShader(): Shader {
         if (bitmap == null)
             return LinearGradient(width / 2.0f, 0f, width / 2.0f, height * 1.0f, 0xFFF2F2F2.toInt(), 0xFFF2F2F2.toInt(), Shader.TileMode.MIRROR)
@@ -28,24 +52,13 @@ class PictureArcHeaderView : BaseArcHeaderView {
         return BitmapShader(tempBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
     }
 
-    fun setSrc(fileName: String) {
-        var options = BitmapFactory.Options()
-        options.inPremultiplied = false
-        setSrc(BitmapFactory.decodeStream(context.assets.open(fileName), null, options))
-    }
-
-    fun setSrc(@DrawableRes drawableId: Int) {
-        setSrc(BitmapFactory.decodeResource(resources, drawableId))
-    }
-
-    fun setSrc(bitmap: Bitmap) {
-        this.bitmap = bitmap;
+    private fun update() {
         resetShader()
         postInvalidate()
     }
 
     fun getBitmap(): Bitmap? {
-        return bitmap;
+        return bitmap
     }
 
     constructor(context: Context) : this(context, null)
