@@ -42,8 +42,12 @@ class ComponentsActivity : ABaseActivity() {
         }
     }
 
+    val ui = ComponentsUI(l)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ComponentsUI(l).setContentView(this)
+        ui.setContentView(this)
+        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
+            finish()
+        }, null)
     }
 }

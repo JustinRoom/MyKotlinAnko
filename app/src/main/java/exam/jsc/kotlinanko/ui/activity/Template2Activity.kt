@@ -10,11 +10,11 @@ import org.jetbrains.anko.setContentView
  * @author jsc
  */
 class Template2Activity : ABaseActivity() {
+    val ui = Template2UI()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val template2UI = Template2UI()
-        template2UI.setContentView(this)
-        template2UI.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
+        ui.setContentView(this)
+        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
             finish()
         }, null)
 
