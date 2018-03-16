@@ -1,24 +1,23 @@
-package exam.jsc.kotlinanko.ui.activity
+package exam.jsc.kotlinanko.ui.activity.component
 
 import android.os.Bundle
 import android.view.View
-import exam.jsc.kotlinanko.R
-import exam.jsc.kotlinanko.ui.fragment.FragmentT
-import exam.jsc.kotlinanko.ui.layout.FragmentTemplateUI
+import exam.jsc.kotlinanko.ui.activity.ABaseActivity
+import exam.jsc.kotlinanko.ui.layout.componet.MonthViewUI
 import org.jetbrains.anko.setContentView
 
 /**
  * Created on 2018/3/15.
  * @author jsc
  */
-class FragmentTemplateActivity : ABaseActivity() {
-    val ui = FragmentTemplateUI()
+class MonthViewActivity: ABaseActivity() {
+
+    val ui = MonthViewUI()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui.setContentView(this)
         ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
             finish()
         }, null)
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, FragmentT()).commit()
     }
 }

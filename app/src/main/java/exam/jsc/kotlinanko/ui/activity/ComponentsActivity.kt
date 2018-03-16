@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import exam.jsc.kotlinanko.R
+import exam.jsc.kotlinanko.ui.activity.component.*
 import exam.jsc.kotlinanko.ui.layout.ComponentsUI
 import org.jetbrains.anko.setContentView
 
@@ -42,8 +43,12 @@ class ComponentsActivity : ABaseActivity() {
         }
     }
 
+    val ui = ComponentsUI(l)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ComponentsUI(l).setContentView(this)
+        ui.setContentView(this)
+        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
+            finish()
+        }, null)
     }
 }

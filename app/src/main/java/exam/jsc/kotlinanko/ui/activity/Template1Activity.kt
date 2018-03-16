@@ -1,7 +1,7 @@
 package exam.jsc.kotlinanko.ui.activity
 
 import android.os.Bundle
-import android.widget.TextView
+import android.view.View
 import exam.jsc.kotlinanko.ui.layout.Template1UI
 import org.jetbrains.anko.setContentView
 
@@ -10,8 +10,13 @@ import org.jetbrains.anko.setContentView
  * @author jsc
  */
 class Template1Activity : ABaseActivity() {
+
+    val ui = Template1UI()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Template1UI().setContentView(this)
+        ui.setContentView(this)
+        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
+            finish()
+        }, null)
     }
 }

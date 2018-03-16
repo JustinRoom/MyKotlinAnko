@@ -1,13 +1,14 @@
 package exam.jsc.kotlinanko.ui.layout
 
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.ComponentsActivity
 import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
-class ComponentsUI(var l: View.OnClickListener) : AnkoComponent<ComponentsActivity> {
+class ComponentsUI(var l: View.OnClickListener) : BaseUI<ComponentsActivity>() {
     private val customStyle = { v: Any ->
         when (v) {
             is TextView -> {
@@ -16,9 +17,9 @@ class ComponentsUI(var l: View.OnClickListener) : AnkoComponent<ComponentsActivi
             }
         }
     }
-    override fun createView(ui: AnkoContext<ComponentsActivity>) = with(ui) {
+
+    override fun createContentView(ui: AnkoContext<ComponentsActivity>, root: LinearLayout): View = with(root) {
         scrollView {
-            fitsSystemWindows = true
             padding = dimen(R.dimen.fab_margin)
             val itemNames = listOf(
                     "ArcHeaderView",
