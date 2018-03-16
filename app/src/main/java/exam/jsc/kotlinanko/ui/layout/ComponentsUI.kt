@@ -9,6 +9,15 @@ import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
 class ComponentsUI(var l: View.OnClickListener) : BaseUI<ComponentsActivity>() {
+    private val customStyle = { v: Any ->
+        when (v) {
+            is TextView -> {
+                v.textSize = 16f
+                v.textColor = 0xFF333333.toInt()
+            }
+        }
+    }
+
     override fun createContentView(ui: AnkoContext<ComponentsActivity>, root: LinearLayout): View = with(root) {
         scrollView {
             padding = dimen(R.dimen.fab_margin)
@@ -55,14 +64,5 @@ class ComponentsUI(var l: View.OnClickListener) : BaseUI<ComponentsActivity>() {
 
             }
         }.applyRecursively(customStyle)
-    }
-
-    private val customStyle = { v: Any ->
-        when (v) {
-            is TextView -> {
-                v.textSize = 16f
-                v.textColor = 0xFF333333.toInt()
-            }
-        }
     }
 }
