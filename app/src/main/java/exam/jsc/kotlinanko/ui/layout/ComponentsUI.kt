@@ -8,7 +8,10 @@ import exam.jsc.kotlinanko.ui.activity.ComponentsActivity
 import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
-class ComponentsUI(var l: View.OnClickListener) : BaseUI<ComponentsActivity>() {
+class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() {
+
+    constructor():this(null)
+
     private val customStyle = { v: Any ->
         when (v) {
             is TextView -> {
