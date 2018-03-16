@@ -70,9 +70,9 @@ open class AToolbarUI {
         ivBack.visibility = if (show) View.VISIBLE else View.INVISIBLE
     }
 
-    fun getActionBarSize(context: Context, attrId: Int): Int {
+    fun getActionBarSize(context: Context): Int {
         val typedValue = TypedValue()
-        val attribute = intArrayOf(attrId)
+        val attribute = intArrayOf(android.R.attr.actionBarSize)
         val array = context.obtainStyledAttributes(typedValue.resourceId, attribute)
         val value = array.getDimensionPixelSize(0, 0)
         array.recycle()

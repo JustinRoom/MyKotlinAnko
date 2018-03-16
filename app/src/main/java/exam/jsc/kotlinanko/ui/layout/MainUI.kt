@@ -10,8 +10,7 @@ class MainUI(var l: View.OnClickListener) : AnkoComponent<MainActivity>, AToolba
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
         verticalLayout {
             fitsSystemWindows = true
-            val aHeight = getActionBarSize(context, android.R.attr.actionBarSize)
-            initToolbar(this).lparams(width = matchParent, height = aHeight)
+            initToolbar(this).lparams(width = matchParent, height = getActionBarSize(context))
 
             val itemNames = listOf("Template1", "Template2", "FragmentTemplate", "Component")
             val itemIds = listOf(R.id.btn_template1, R.id.btn_template2, R.id.btn_fragment_template, R.id.btn_component)
