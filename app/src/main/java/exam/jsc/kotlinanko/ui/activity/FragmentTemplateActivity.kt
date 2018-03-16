@@ -1,20 +1,24 @@
 package exam.jsc.kotlinanko.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.fragment.FragmentT
-import org.jetbrains.anko.frameLayout
+import exam.jsc.kotlinanko.ui.layout.FragmentTemplateUI
+import org.jetbrains.anko.setContentView
 
 /**
  * Created on 2018/3/15.
  * @author jsc
  */
 class FragmentTemplateActivity : ABaseActivity() {
+    val ui = FragmentTemplateUI()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       frameLayout {
-        id = R.id.fragment_container
-       }
+        ui.setContentView(this)
+        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
+            finish()
+        }, null)
         supportFragmentManager.beginTransaction().add(R.id.fragment_container, FragmentT()).commit()
     }
 }
