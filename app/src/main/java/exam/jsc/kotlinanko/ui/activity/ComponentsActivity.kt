@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import exam.jsc.kotlinanko.R
+import exam.jsc.kotlinanko.ui.activity.component.*
 import exam.jsc.kotlinanko.ui.layout.ComponentsUI
 import org.jetbrains.anko.setContentView
 

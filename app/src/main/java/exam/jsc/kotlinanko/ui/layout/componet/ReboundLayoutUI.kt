@@ -1,9 +1,9 @@
-package exam.jsc.kotlinanko.ui.layout
+package exam.jsc.kotlinanko.ui.layout.componet
 
 import android.view.View
 import android.widget.LinearLayout
-import exam.jsc.kotlinanko.ui.activity.MonthViewActivity
-import exam.jsc.kotlinanko.ui.activity.ReboundLayoutActivity
+import exam.jsc.kotlinanko.ui.activity.component.ReboundLayoutActivity
+import exam.jsc.kotlinanko.ui.layout.BaseUI
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.verticalLayout
 

@@ -1,8 +1,9 @@
-package exam.jsc.kotlinanko.ui.layout
+package exam.jsc.kotlinanko.ui.layout.componet
 
 import android.view.View
 import android.widget.LinearLayout
-import exam.jsc.kotlinanko.ui.activity.RefreshLayoutActivity
+import exam.jsc.kotlinanko.ui.activity.component.RefreshLayoutActivity
+import exam.jsc.kotlinanko.ui.layout.BaseUI
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.verticalLayout
 

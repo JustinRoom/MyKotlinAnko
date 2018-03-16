@@ -1,17 +1,18 @@
-package exam.jsc.kotlinanko.ui.activity
+package exam.jsc.kotlinanko.ui.activity.component
 
 import android.os.Bundle
 import android.view.View
-import exam.jsc.kotlinanko.ui.layout.JSCRoundCornerProgressBarUI
+import exam.jsc.kotlinanko.ui.activity.ABaseActivity
+import exam.jsc.kotlinanko.ui.layout.componet.JSCItemLayoutUI
 import org.jetbrains.anko.setContentView
 
 /**
  * Created on 2018/3/15.
  * @author jsc
  */
-class JSCRoundCornerProgressBarActivity: ABaseActivity() {
+class JSCItemLayoutActivity: ABaseActivity() {
 
-    val ui = JSCRoundCornerProgressBarUI()
+    val ui = JSCItemLayoutUI()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui.setContentView(this)

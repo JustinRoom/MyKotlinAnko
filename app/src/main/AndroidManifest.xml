@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.ComponentsActivity" />
-        <activity android:name=".ui.activity.ArcHeaderViewActivity" />
-        <activity android:name=".ui.activity.BannerViewActivity" />
-        <activity android:name=".ui.activity.MonthViewActivity" />
-        <activity android:name=".ui.activity.ReboundLayoutActivity" />
-        <activity android:name=".ui.activity.VerticalStepViewActivity" />
-        <activity android:name=".ui.activity.RefreshLayoutActivity" />
-        <activity android:name=".ui.activity.JSCRoundCornerProgressBarActivity" />
-        <activity android:name=".ui.activity.JSCItemLayoutActivity" />
+        <activity android:name=".ui.activity.component.ArcHeaderViewActivity" />
+        <activity android:name=".ui.activity.component.BannerViewActivity" />
+        <activity android:name=".ui.activity.component.MonthViewActivity" />
+        <activity android:name=".ui.activity.component.ReboundLayoutActivity" />
+        <activity android:name=".ui.activity.component.VerticalStepViewActivity" />
+        <activity android:name=".ui.activity.component.RefreshLayoutActivity" />
+        <activity android:name=".ui.activity.component.JSCRoundCornerProgressBarActivity" />
+        <activity android:name=".ui.activity.component.JSCItemLayoutActivity" />
         <activity android:name=".ui.activity.Template1Activity" />
         <activity android:name=".ui.activity.Template2Activity" />
         <activity android:name=".ui.activity.FragmentTemplateActivity" />
