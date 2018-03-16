@@ -6,7 +6,10 @@ import exam.jsc.kotlinanko.ui.activity.MainActivity
 import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
-class MainUI(var l: View.OnClickListener) : AnkoComponent<MainActivity>, AToolbarUI() {
+class MainUI(val l:View.OnClickListener?): AnkoComponent<MainActivity>, AToolbarUI() {
+
+    constructor():this(null)
+
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
         verticalLayout {
             fitsSystemWindows = true
