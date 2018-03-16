@@ -23,7 +23,7 @@ open class AToolbarUI {
     lateinit var menuContainer: LinearLayout
     fun initToolbar(v: ViewGroup): View = with(v) {
         relativeLayout {
-            backgroundColor = resources.getColor(R.color.colorPrimary, null)
+            backgroundColor = resources.getColor(R.color.colorPrimary)
             leftPadding = dip(12)
             rightPadding = dip(12)
 
