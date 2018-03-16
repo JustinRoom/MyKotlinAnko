@@ -22,6 +22,6 @@ class Template2UI : ViewBinder<Template2Activity> {
     }
 
     override fun unbind(t: Template2Activity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 }

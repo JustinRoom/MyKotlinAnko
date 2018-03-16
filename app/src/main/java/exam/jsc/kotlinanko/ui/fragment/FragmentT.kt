@@ -18,7 +18,7 @@ import org.jetbrains.anko.textView
  */
 class FragmentT: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = UI {
+        return UI {
             relativeLayout {
                 textView("This is a fragment.") {
                     textSize = 16f
@@ -28,6 +28,5 @@ class FragmentT: Fragment() {
                 }
             }
         }.view
-        return rootView
     }
 }

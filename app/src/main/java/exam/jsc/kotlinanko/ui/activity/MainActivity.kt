@@ -8,9 +8,10 @@ import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.startActivity
 
 class MainActivity : ABaseActivity() {
+    lateinit var mainUI: MainUI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MainUI(View.OnClickListener {
+        mainUI = MainUI(View.OnClickListener {
             when (it.id) {
                 R.id.btn_template1 -> {
                     startActivity<Template1Activity>()
@@ -25,6 +26,10 @@ class MainActivity : ABaseActivity() {
                     startActivity<ComponentsActivity>()
                 }
             }
-        }).setContentView(this)
+        })
+        mainUI.setContentView(this)
+        mainUI.setTitle(getCusTitle())
+        mainUI.setBackListener(null)
+        mainUI.showBack(false)
     }
 }
