@@ -11,7 +11,6 @@ import org.jetbrains.anko.custom.ankoView
  * @author jsc
  */
 inline fun ViewManager.jscItemLayout() = jscItemLayout {}
-
 inline fun ViewManager.jscItemLayout(theme: Int = 0, init: JSCItemLayout.() -> Unit): JSCItemLayout {
     return ankoView({ JSCItemLayout(it) }, theme, init)
 }
