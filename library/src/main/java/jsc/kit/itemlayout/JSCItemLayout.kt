@@ -84,8 +84,11 @@ class JSCItemLayout : FrameLayout, IBaseView {
         arrowView = ImageView(context)
         layout.addView(arrowView, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT))
 
+        //设置默认属性
         icon = R.drawable.kit_ic_assignment_blue_24dp
         arrowIcon = R.drawable.kit_ic_chevron_right_gray_24dp
+        labelTextColor = 0xFF333333.toInt()
+        labelTextSize = 14f
     }
 
     override fun retrieveAttributes(attrs: AttributeSet) {

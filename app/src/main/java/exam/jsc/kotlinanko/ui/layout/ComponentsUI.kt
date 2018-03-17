@@ -16,7 +16,6 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
         when (v) {
             is TextView -> {
                 v.textSize = 16f
-                v.textColor = 0xFF333333.toInt()
             }
         }
     }
