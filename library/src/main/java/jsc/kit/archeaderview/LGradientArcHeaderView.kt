@@ -1,9 +1,8 @@
 package jsc.kit.archeaderview
 
 import android.content.Context
-import android.graphics.*
-import android.support.annotation.ColorInt
-import android.support.annotation.DrawableRes
+import android.graphics.LinearGradient
+import android.graphics.Shader
 import android.util.AttributeSet
 
 
@@ -17,6 +16,7 @@ class LGradientArcHeaderView : BaseArcHeaderView {
         resetShader()
         postInvalidate()
     }
+
     var endColor: Int = 0xFFFF3745.toInt()
     set(value) {
         field = value

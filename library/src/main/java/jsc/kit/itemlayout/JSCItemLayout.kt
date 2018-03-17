@@ -93,12 +93,12 @@ class JSCItemLayout : FrameLayout, IBaseView {
 
     override fun retrieveAttributes(attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.JSCItemLayout)
-        val v1 = typedArray.getResourceId(R.styleable.JSCItemLayout_icon, 0)
+        val v1 = typedArray.getResourceId(R.styleable.JSCItemLayout_cus_icon, 0)
         if (v1 != 0)
             icon = v1
-        label = typedArray.getText(R.styleable.JSCItemLayout_label)
-        labelTextSize = typedArray.getFloat(R.styleable.JSCItemLayout_label_text_size, 14f)
-        labelTextColor = typedArray.getColor(R.styleable.JSCItemLayout_label_text_color, 0xff333333.toInt())
+        label = typedArray.getText(R.styleable.JSCItemLayout_cus_text)
+        labelTextSize = typedArray.getFloat(R.styleable.JSCItemLayout_cus_text_size, 14f)
+        labelTextColor = typedArray.getColor(R.styleable.JSCItemLayout_cus_text_color, 0xff333333.toInt())
         val v2 = typedArray.getResourceId(R.styleable.JSCItemLayout_arrow_icon, 0)
         if (v2 != 0)
             arrowIcon = v2
