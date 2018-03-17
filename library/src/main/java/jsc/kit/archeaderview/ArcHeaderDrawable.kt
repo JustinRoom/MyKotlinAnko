@@ -14,6 +14,9 @@ class ArcHeaderDrawable(val mArcHeight: Int = 100, @IntRange(from = 0, to = 1) v
     private val mPath: Path = Path()
     private val mPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
+    constructor(bitmap: Bitmap):this(100, bitmap)
+    constructor(mArcHeight: Int = 100, bitmap: Bitmap):this(mArcHeight, 0, bitmap)
+
     override fun draw(canvas: Canvas?) {
         mPaint.shader = BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
         calPath()
