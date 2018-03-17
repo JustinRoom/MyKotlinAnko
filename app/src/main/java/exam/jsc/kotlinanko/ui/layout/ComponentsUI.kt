@@ -54,7 +54,7 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
                         topPadding = dip(12)
                         bottomPadding = dip(12)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
-                        setLabel(itemNames[index])
+                        label = itemNames[index]
                         setOnClickListener(l)
                     }.lparams {
                         width = matchParent

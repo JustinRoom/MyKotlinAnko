@@ -27,7 +27,7 @@ class MainUI(val l:View.OnClickListener?): AnkoComponent<MainActivity>, AToolbar
                         topPadding = dip(8)
                         bottomPadding = dip(8)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
-                        setLabel(itemNames[index])
+                        label =itemNames[index]
                         setOnClickListener(l)
                     }.lparams {
                         width = matchParent

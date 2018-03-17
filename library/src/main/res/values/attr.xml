@@ -2,11 +2,11 @@
 <resources>
 
     <declare-styleable name="JSCItemLayout">
-        <attr name="il_icon" format="reference"/>
-        <attr name="il_label" format="string|reference"/>
-        <attr name="il_label_text_size" format="float|reference"/>
-        <attr name="il_label_text_color" format="color|reference"/>
-        <attr name="il_arrow_icon" format="reference"/>
+        <attr name="icon" format="reference" />
+        <attr name="label" format="string" />
+        <attr name="label_text_size" format="float" />
+        <attr name="label_text_color" format="color" />
+        <attr name="arrow_icon" format="reference" />
     </declare-styleable>
 
 </resources>

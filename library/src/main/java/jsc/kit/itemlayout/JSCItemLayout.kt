@@ -1,7 +1,6 @@
 package jsc.kit.itemlayout
 
 import android.content.Context
-import android.graphics.Color
 import android.support.annotation.ColorInt
 import android.support.annotation.DrawableRes
 import android.util.AttributeSet
@@ -10,70 +9,103 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import jsc.kit.IBaseView
 import jsc.kit.R
 import org.jetbrains.anko.*
 
 
-
 /**
+ * <declare-styleable name="JSCItemLayout">
+<attr name="icon" format="reference"/>
+<attr name="label" format="string|reference"/>
+<attr name="label_text_size" format="float|reference"/>
+<attr name="label_text_color" format="color|reference"/>
+<attr name="arrow_icon" format="reference"/>
+</declare-styleable>
  * Created on 2018/3/14.
  * @author jsc
  */
-class JSCItemLayout : FrameLayout {
+class JSCItemLayout : FrameLayout, IBaseView {
 
     private lateinit var iconView: ImageView
     private lateinit var labelView: TextView
     private lateinit var arrowView: ImageView
 
+    @DrawableRes
+    var icon: Int = 0
+        set(value) {
+            field = value
+            iconView.imageResource = value
+        }
+
+    var label: CharSequence? = null
+        set(value) {
+            field = value
+            labelView.text = value
+        }
+
+    var labelTextSize: Float = 0f
+        set(value) {
+            if (value > 0) {
+                field = value
+                labelView.textSize = value
+            }
+        }
+
+    @ColorInt
+    var labelTextColor: Int = 0
+        set(value) {
+            field = value
+            labelView.textColor = value
+        }
+
+    @DrawableRes
+    var arrowIcon: Int = 0
+        set(value) {
+            field = value
+            arrowView.imageResource = value
+        }
+
     constructor(context: Context) : this(context, null)
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        init()
+        init(context)
+        attrs?.let { retrieveAttributes(attrs) }
     }
 
-    private fun init() = apply {
-        verticalLayout {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            iconView = imageView {
-                imageResource = R.drawable.kit_ic_assignment_blue_24dp
-            }
+    override fun init(context: Context) {
+        val layout = LinearLayout(context)
+        layout.orientation = LinearLayout.HORIZONTAL
+        layout.gravity = Gravity.CENTER_VERTICAL
+        addView(layout, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
 
-            labelView = textView("") {
-                textColor = Color.parseColor("#333333")
-                leftPadding = dip(12)
-                rightPadding = dip(12)
-                maxLines = 1
-            }.lparams(width = matchParent, height = wrapContent, weight = 1f) {
+        iconView = ImageView(context)
+        layout.addView(iconView, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT))
 
-            }
+        labelView = TextView(context)
+        labelView.leftPadding = dip(12)
+        labelView.rightPadding = dip(12)
+        labelView.maxLines = 1
+        layout.addView(labelView, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
 
-            arrowView = imageView {
-                imageResource = R.drawable.kit_ic_chevron_right_gray_24dp
-            }
-        }
+        arrowView = ImageView(context)
+        layout.addView(arrowView, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+
+        icon = R.drawable.kit_ic_assignment_blue_24dp
+        arrowIcon = R.drawable.kit_ic_chevron_right_gray_24dp
     }
 
-    fun setIcon(@DrawableRes resId: Int) {
-        iconView.imageResource = resId
-    }
-
-    fun setLabel(label: String) {
-        labelView.text = label
-    }
-
-    fun setLabelColor(@ColorInt labelColor: Int) {
-        labelView.textColor = labelColor
-    }
-
-    /**
-     * The unit is sp.
-     */
-    fun setLabelSize(size: Float) {
-        labelView.textSize = size
-    }
-
-    fun setArrowIcon(@DrawableRes resId: Int) {
-        arrowView.imageResource = resId
+    override fun retrieveAttributes(attrs: AttributeSet) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.JSCItemLayout)
+        val v1 = typedArray.getResourceId(R.styleable.JSCItemLayout_icon, 0)
+        if (v1 != 0)
+            icon = v1
+        label = typedArray.getText(R.styleable.JSCItemLayout_label)
+        labelTextSize = typedArray.getFloat(R.styleable.JSCItemLayout_label_text_size, 14f)
+        labelTextColor = typedArray.getColor(R.styleable.JSCItemLayout_label_text_color, 0xff333333.toInt())
+        val v2 = typedArray.getResourceId(R.styleable.JSCItemLayout_arrow_icon, 0)
+        if (v2 != 0)
+            arrowIcon = v2
+        typedArray.recycle()
     }
 }
