@@ -15,13 +15,6 @@ import org.jetbrains.anko.*
 
 
 /**
- * <declare-styleable name="JSCItemLayout">
-<attr name="icon" format="reference"/>
-<attr name="label" format="string|reference"/>
-<attr name="label_text_size" format="float|reference"/>
-<attr name="label_text_color" format="color|reference"/>
-<attr name="arrow_icon" format="reference"/>
-</declare-styleable>
  * Created on 2018/3/14.
  * @author jsc
  */
