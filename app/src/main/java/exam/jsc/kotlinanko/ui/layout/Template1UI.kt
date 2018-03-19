@@ -13,9 +13,10 @@ import org.jetbrains.anko.*
  * Created on 2018/3/15.
  * @author jsc
  */
-class Template1UI : BaseUI<Template1Activity>() {
-    override fun createContentView(ui: AnkoContext<Template1Activity>, root: LinearLayout): View = with(root) {
-        verticalLayout {
+class Template1UI : BaseUI2<Template1Activity>() {
+    override fun createContentView(ui: AnkoContext<Template1Activity>): View {
+        return LinearLayout(ui.ctx).apply {
+            orientation = LinearLayout.VERTICAL
             textView("Justin")
             textView("1006368252@qq.com")
 
@@ -24,8 +25,7 @@ class Template1UI : BaseUI<Template1Activity>() {
             imageView {
                 scaleType = ImageView.ScaleType.CENTER_CROP
                 setImageDrawable(drawable)
-            }.lparams(width= matchParent, height = wrapContent)
+            }
         }
     }
-
 }

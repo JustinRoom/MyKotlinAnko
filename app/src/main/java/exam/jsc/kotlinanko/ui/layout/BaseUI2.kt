@@ -44,8 +44,10 @@ abstract class BaseUI2<in T : AppCompatActivity> : AnkoComponent<T> {
         val toolbarLayout = LayoutInflater.from(ui.ctx).inflate(R.layout.support_toolbar2, null)
         toolbar = toolbarLayout.find(R.id.toolbar)
         toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_24dp
-        toolbar.title = "Title"
-//        toolbar.subtitle = "SubTitle"
+        ui.owner.setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener {
+            ui.owner.finish()
+        }
         return toolbarLayout
     }
 
@@ -58,11 +60,9 @@ abstract class BaseUI2<in T : AppCompatActivity> : AnkoComponent<T> {
         return value
     }
 
-    inline fun <T : AppCompatActivity> setSupportActionBar(title: CharSequence? = "", activity: T, naviListener: View.OnClickListener? = null, menuListener: Toolbar.OnMenuItemClickListener? = null) {
-        toolbar.title = title
-        activity.setSupportActionBar(toolbar)
-        toolbar.setNavigationOnClickListener(naviListener)
-        toolbar.setOnMenuItemClickListener(menuListener)
+    inline fun <T : AppCompatActivity> setSupportActionBar(activity: T, title: CharSequence? = "") {
+        activity.title = title
+        activity.supportActionBar?.title = title
     }
 
     abstract fun createContentView(ui: AnkoContext<T>): View
