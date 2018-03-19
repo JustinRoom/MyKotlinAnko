@@ -17,7 +17,7 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
     private val customStyle = { v: Any ->
         when (v) {
             is TextView -> {
-                v.textSize = 16f
+                v.textSize = 15f
             }
         }
     }
@@ -58,7 +58,6 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
                         setOnClickListener(l)
                     }.ilLabel {
                         text = itemNames[index]
-                        textSize = 12f
                     }.ilArrow {
                         alpha = 0.4f
                     }.lparams(matchParent, wrapContent) {

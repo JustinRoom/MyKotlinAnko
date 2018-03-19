@@ -33,7 +33,7 @@ class MainUI(val l: View.OnClickListener?) : AnkoComponent<MainActivity>, AToolb
                         setOnClickListener(l)
                     }.ilLabel {
                         text = itemNames[index]
-                        textSize = 12f
+                        textSize = 15f
                     }.ilDot {
                         if (index == itemNames.lastIndex)
                             visibility = View.VISIBLE
