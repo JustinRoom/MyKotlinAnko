@@ -9,7 +9,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import jsc.kit.IBaseView
 import jsc.kit.R
 import jsc.kit.common.DotView
 import jsc.kit.common.dotView
@@ -20,7 +19,7 @@ import org.jetbrains.anko.*
  * Created on 2018/3/14.
  * @author jsc
  */
-open class JSCItemLayout : FrameLayout, IBaseView {
+open class JSCItemLayout : FrameLayout {
 
     private lateinit var iconView: ImageView
     private lateinit var labelView: TextView
@@ -33,7 +32,7 @@ open class JSCItemLayout : FrameLayout, IBaseView {
         init()
     }
 
-    override fun init() = apply {
+    private fun init() = apply {
         verticalLayout {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL

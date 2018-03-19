@@ -35,7 +35,7 @@ class MainUI(val l: View.OnClickListener?) : AnkoComponent<MainActivity>, AToolb
                         text = itemNames[index]
                         textSize = 12f
                     }.ilDot {
-                        if (index == itemNames.size - 1)
+                        if (index == itemNames.lastIndex)
                             visibility = View.VISIBLE
                     }.ilArrow {
                         alpha = 0.4f
