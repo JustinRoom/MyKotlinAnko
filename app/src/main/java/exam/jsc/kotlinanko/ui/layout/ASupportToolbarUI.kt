@@ -7,11 +7,8 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import exam.jsc.kotlinanko.R
+import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
-import org.jetbrains.anko.find
-import org.jetbrains.anko.frameLayout
-import org.jetbrains.anko.include
-import org.jetbrains.anko.matchParent
 
 
 /**
@@ -20,20 +17,21 @@ import org.jetbrains.anko.matchParent
  */
 open class ASupportToolbarUI {
     lateinit var toolbar: Toolbar
-    fun initToolbar(v: ViewGroup): View = with(v) {
+    fun <T : AppCompatActivity> initToolbar(v: ViewGroup, ui: AnkoContext<T>): View = with(v) {
         frameLayout {
-            include<View>(R.layout.support_toolbar){
+            include<View>(R.layout.support_toolbar) {
                 toolbar = find(R.id.toolbar)
                 toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_24dp
+                toolbar.setNavigationOnClickListener {
+                    ui.owner.finish()
+                }
             }.lparams(width = matchParent, height = matchParent)
         }
     }
 
-    fun <T: AppCompatActivity>setSupportActionBar(title:CharSequence, activity: T, naviListener:View.OnClickListener?, menuListener:Toolbar.OnMenuItemClickListener?){
+    inline fun <T : AppCompatActivity> setSupportActionBar(activity: T, title: CharSequence? = "") {
         toolbar.title = title
         activity.setSupportActionBar(toolbar)
-        toolbar.setNavigationOnClickListener(naviListener)
-        toolbar.setOnMenuItemClickListener(menuListener)
     }
 
     fun getActionBarSize(context: Context): Int {

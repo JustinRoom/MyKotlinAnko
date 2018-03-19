@@ -1,7 +1,6 @@
 package exam.jsc.kotlinanko.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.fragment.FragmentT
 import exam.jsc.kotlinanko.ui.layout.FragmentTemplateUI
@@ -16,9 +15,7 @@ class FragmentTemplateActivity : ABaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui.setContentView(this)
-        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
-            finish()
-        }, null)
+        ui.setSupportActionBar(this, getCusTitle())
         supportFragmentManager.beginTransaction().add(R.id.fragment_container, FragmentT()).commit()
     }
 }

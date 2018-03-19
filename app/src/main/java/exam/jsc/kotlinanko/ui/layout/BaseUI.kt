@@ -16,7 +16,7 @@ abstract class BaseUI<in T : AppCompatActivity> : AnkoComponent<T>, ASupportTool
     override fun createView(ui: AnkoContext<T>): View = with(ui) {
         verticalLayout {
             fitsSystemWindows = true
-            initToolbar(this).lparams(width = matchParent, height = getActionBarSize(context))
+            initToolbar(this, ui).lparams(width = matchParent, height = getActionBarSize(context))
             createContentView(ui, this).lparams(width = matchParent, height = matchParent)
         }
     }

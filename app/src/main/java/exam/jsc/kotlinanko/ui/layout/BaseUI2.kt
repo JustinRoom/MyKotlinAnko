@@ -20,7 +20,6 @@ import org.jetbrains.anko.find
  * @author jsc
  */
 abstract class BaseUI2<in T : AppCompatActivity> : AnkoComponent<T> {
-    //    val ankoLogger = AnkoLogger("BaseUI")
     lateinit var toolbar: Toolbar
 
     override fun createView(ui: AnkoContext<T>): View {
@@ -46,7 +45,7 @@ abstract class BaseUI2<in T : AppCompatActivity> : AnkoComponent<T> {
         toolbar = toolbarLayout.find(R.id.toolbar)
         toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_24dp
         toolbar.title = "Title"
-        toolbar.subtitle = "SubTitle"
+//        toolbar.subtitle = "SubTitle"
         return toolbarLayout
     }
 
@@ -59,7 +58,7 @@ abstract class BaseUI2<in T : AppCompatActivity> : AnkoComponent<T> {
         return value
     }
 
-    fun <T : AppCompatActivity> setSupportActionBar(title: CharSequence, activity: T, naviListener: View.OnClickListener?, menuListener: Toolbar.OnMenuItemClickListener?) {
+    inline fun <T : AppCompatActivity> setSupportActionBar(title: CharSequence? = "", activity: T, naviListener: View.OnClickListener? = null, menuListener: Toolbar.OnMenuItemClickListener? = null) {
         toolbar.title = title
         activity.setSupportActionBar(toolbar)
         toolbar.setNavigationOnClickListener(naviListener)

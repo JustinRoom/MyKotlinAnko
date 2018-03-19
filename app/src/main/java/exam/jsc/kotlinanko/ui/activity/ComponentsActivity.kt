@@ -47,8 +47,6 @@ class ComponentsActivity : ABaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui.setContentView(this)
-        ui.setSupportActionBar(getCusTitle(), this, View.OnClickListener {
-            finish()
-        }, null)
+        ui.setSupportActionBar(this, getCusTitle())
     }
 }
