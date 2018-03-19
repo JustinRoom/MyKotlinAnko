@@ -22,6 +22,7 @@ open class ASupportToolbarUI {
             include<View>(R.layout.support_toolbar) {
                 toolbar = find(R.id.toolbar)
                 toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_24dp
+                ui.owner.setSupportActionBar(toolbar)
                 toolbar.setNavigationOnClickListener {
                     ui.owner.finish()
                 }
@@ -30,8 +31,8 @@ open class ASupportToolbarUI {
     }
 
     inline fun <T : AppCompatActivity> setSupportActionBar(activity: T, title: CharSequence? = "") {
-        toolbar.title = title
-        activity.setSupportActionBar(toolbar)
+        activity.title = title
+        activity.supportActionBar?.title = title
     }
 
     fun getActionBarSize(context: Context): Int {
