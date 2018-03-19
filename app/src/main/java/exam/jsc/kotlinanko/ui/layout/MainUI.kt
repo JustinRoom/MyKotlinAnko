@@ -1,16 +1,17 @@
 package exam.jsc.kotlinanko.ui.layout
 
-import android.graphics.Color
-import android.view.Gravity
 import android.view.View
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.MainActivity
-import jsc.kit.*
+import jsc.kit.itemlayout.ilArrow
+import jsc.kit.itemlayout.ilDot
+import jsc.kit.itemlayout.ilLabel
+import jsc.kit.itemlayout.jscItemLayout
 import org.jetbrains.anko.*
 
-class MainUI(val l:View.OnClickListener?): AnkoComponent<MainActivity>, AToolbarUI() {
+class MainUI(val l: View.OnClickListener?) : AnkoComponent<MainActivity>, AToolbarUI() {
 
-    constructor():this(null)
+    constructor() : this(null)
 
     override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
         verticalLayout {
@@ -22,16 +23,23 @@ class MainUI(val l:View.OnClickListener?): AnkoComponent<MainActivity>, AToolbar
             verticalLayout {
                 padding = dimen(R.dimen.fab_margin)
                 for (index in itemNames.indices) {
-                    jscItemLayout() {
+                    jscItemLayout {
                         id = itemIds[index]
                         leftPadding = dip(16)
                         rightPadding = dip(16)
                         topPadding = dip(8)
                         bottomPadding = dip(8)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
-                        label =itemNames[index]
                         setOnClickListener(l)
-                    }.lparams {
+                    }.ilLabel {
+                        text = itemNames[index]
+                        textSize = 12f
+                    }.ilDot {
+                        if (index == itemNames.size - 1)
+                            visibility = View.VISIBLE
+                    }.ilArrow {
+                        alpha = 0.4f
+                    }.lparams(matchParent, wrapContent) {
                         width = matchParent
                         height = wrapContent
                         if (index > 0)
@@ -39,24 +47,7 @@ class MainUI(val l:View.OnClickListener?): AnkoComponent<MainActivity>, AToolbar
                     }
                 }
 
-                myItemLayout {
-                    leftPadding = dip(16)
-                    rightPadding = dip(16)
-                    topPadding = dip(8)
-                    bottomPadding = dip(8)
-                    backgroundResource = R.drawable.ripple_round_corner_white_r4
-                }.ilIcon {
-                    imageResource = R.drawable.kit_ic_assignment_blue_24dp
-                }.ilLabel {
-                    text = "MyItemLayout\nHello, \u3000Justin"
-                    textColor = Color.BLUE
-                    textSize = 12f
-                }.ilArrow {
-                    imageResource= R.drawable.kit_ic_chevron_right_gray_24dp
-                    alpha = 0.4f
-                }.lparams(matchParent, wrapContent){
-                    topMargin = dip(4)
-                }
+
             }.lparams(width = matchParent, height = wrapContent) {
 
             }

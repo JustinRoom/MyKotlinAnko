@@ -5,7 +5,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.ComponentsActivity
-import jsc.kit.jscItemLayout
+import jsc.kit.itemlayout.ilArrow
+import jsc.kit.itemlayout.ilLabel
+import jsc.kit.itemlayout.jscItemLayout
 import org.jetbrains.anko.*
 
 class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() {
@@ -50,12 +52,16 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
                         id = itemIds[index]
                         leftPadding = dip(16)
                         rightPadding = dip(16)
-                        topPadding = dip(12)
-                        bottomPadding = dip(12)
+                        topPadding = dip(8)
+                        bottomPadding = dip(8)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
-                        label = itemNames[index]
                         setOnClickListener(l)
-                    }.lparams {
+                    }.ilLabel {
+                        text = itemNames[index]
+                        textSize = 12f
+                    }.ilArrow {
+                        alpha = 0.4f
+                    }.lparams(matchParent, wrapContent) {
                         width = matchParent
                         height = wrapContent
                         if (index > 0)

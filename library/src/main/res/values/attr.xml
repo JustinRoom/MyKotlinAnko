@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="cus_icon" format="reference"/>
-    <attr name="cus_text" format="string"/>
-    <attr name="cus_text_color" format="color"/>
-    <attr name="cus_text_size" format="float"/>
-
-    <declare-styleable name="JSCItemLayout">
-        <attr name="cus_icon" />
-        <attr name="cus_text" />
-        <attr name="cus_text_color"/>
-        <attr name="cus_text_size"/>
-        <attr name="arrow_icon" format="reference" />
-    </declare-styleable>
-
 </resources>
