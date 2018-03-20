@@ -3,7 +3,9 @@ package exam.jsc.kotlinanko.ui.activity
 import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.os.Bundle
+import android.support.annotation.StringRes
 import android.support.v7.app.AppCompatActivity
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.view.animation.Animation
@@ -42,26 +44,31 @@ abstract class ABaseActivity : AppCompatActivity() {
         return javaClass.simpleName.replace("Activity", "")
     }
 
-    var lastToast: View? = null
-    fun showCustomToast(txt: CharSequence, topMargin: Int = 0){
+    var lastToastView: View? = null
+    fun showCustomToast(@StringRes resId: Int){
+        val txt = getString(resId)
+        showCustomToast(txt)
+    }
+
+    fun showCustomToast(txt: CharSequence){
         val content = find<FrameLayout>(android.R.id.content)
-        lastToast?.animation?.cancel()
-        content.removeView(lastToast)
+        lastToastView?.animation?.cancel()
+        content.removeView(lastToastView)
 
         val params = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT)
         params.gravity = Gravity.CENTER_HORIZONTAL
-        params.topMargin = topMargin
+        params.topMargin = getActionBarSize()
         params.leftMargin = dip(64)
         params.rightMargin = dip(64)
-        val v = TextView(this)
-        v.padding = dip(12)
-        v.backgroundColor = Color.GREEN.withAlpha(0xEE)
-        v.gravity = Gravity.CENTER_HORIZONTAL
-        v.textSize = 16f
-        v.textColor = Color.BLACK
-        v.text = txt
-        lastToast = v
-        content.addView(v, params)
+        val toastView = TextView(this)
+        toastView.padding = dip(12)
+        toastView.backgroundColor = Color.GREEN.withAlpha(0xEE)
+        toastView.gravity = Gravity.CENTER_HORIZONTAL
+        toastView.textSize = 16f
+        toastView.textColor = Color.BLACK
+        toastView.text = txt
+        lastToastView = toastView
+        content.addView(toastView, params)
 
         val inAnim = TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 1.0f,
@@ -74,8 +81,8 @@ abstract class ABaseActivity : AppCompatActivity() {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                v.postDelayed({
-                    content.removeView(v)
+                toastView.postDelayed({
+                    content.removeView(toastView)
                 }, 2000)
             }
 
@@ -83,6 +90,15 @@ abstract class ABaseActivity : AppCompatActivity() {
             }
         })
         inAnim.duration = 300
-        v.startAnimation(inAnim)
+        toastView.startAnimation(inAnim)
+    }
+
+    fun getActionBarSize(): Int {
+        val typedValue = TypedValue()
+        val attribute = intArrayOf(android.R.attr.actionBarSize)
+        val array = obtainStyledAttributes(typedValue.resourceId, attribute)
+        val value = array.getDimensionPixelSize(0, 0)
+        array.recycle()
+        return value
     }
 }
