@@ -22,13 +22,19 @@ class MainActivity : ABaseActivity() {
             R.id.btn_component -> {
                 startActivity<ComponentsActivity>()
             }
+            else ->{
+                showCustomToast("Here is the custom tips content.", actionBarSize)
+            }
         }
     }
     val ui = MainUI(l)
+    var actionBarSize: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui.setContentView(this)
         ui.setSupportActionBar(this, getCusTitle())
         ui.hideNavigationMenu()
+        actionBarSize = ui.getActionBarSize(this)
     }
+
 }

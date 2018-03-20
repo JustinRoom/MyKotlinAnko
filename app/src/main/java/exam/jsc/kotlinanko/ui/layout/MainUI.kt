@@ -1,5 +1,6 @@
 package exam.jsc.kotlinanko.ui.layout
 
+import android.view.Gravity
 import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.R
@@ -42,7 +43,12 @@ class MainUI(var l: View.OnClickListener? = null) : CustomBaseUI<MainActivity>()
                     }
                 }
 
-
+                button("showTips"){
+                    setOnClickListener(l)
+                }.lparams {
+                    gravity = Gravity.CENTER_HORIZONTAL
+                    topMargin = dip(16)
+                }
             }.lparams(width = matchParent, height = wrapContent) {
 
             }
