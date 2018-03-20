@@ -10,7 +10,7 @@ import org.jetbrains.anko.verticalLayout
  * Created on 2018/3/15.
  * @author jsc
  */
-class Template1UI : CustomBaseUI<Template1Activity>() {
+class Template1UI : BaseUI<Template1Activity>() {
     override fun createContentView(layout: LinearLayout): View = with(layout){
         verticalLayout {
             textView("Justin")
