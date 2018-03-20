@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.ui.activity.component.VerticalStepViewActivity
 import exam.jsc.kotlinanko.ui.layout.BaseUI
-import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.verticalLayout
 
 /**
@@ -12,7 +11,7 @@ import org.jetbrains.anko.verticalLayout
  * @author jsc
  */
 class VerticalStepViewUI : BaseUI<VerticalStepViewActivity>() {
-    override fun createContentView(ui: AnkoContext<VerticalStepViewActivity>, root: LinearLayout): View = with(root) {
+    override fun createContentView(layout: LinearLayout): View = with(layout) {
         verticalLayout {
 
         }

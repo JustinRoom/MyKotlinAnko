@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.FragmentTemplateActivity
-import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.frameLayout
 
 /**
@@ -12,10 +11,9 @@ import org.jetbrains.anko.frameLayout
  * @author jsc
  */
 class FragmentTemplateUI : BaseUI<FragmentTemplateActivity>() {
-    override fun createContentView(ui: AnkoContext<FragmentTemplateActivity>, root: LinearLayout): View = with(root) {
+    override fun createContentView(layout: LinearLayout): View = with(layout) {
         frameLayout {
             id = R.id.fragment_container
         }
     }
-
 }

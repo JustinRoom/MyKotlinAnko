@@ -10,9 +10,7 @@ import jsc.kit.itemlayout.ilLabel
 import jsc.kit.itemlayout.jscItemLayout
 import org.jetbrains.anko.*
 
-class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() {
-
-    constructor():this(null)
+class ComponentsUI(var l: View.OnClickListener? = null) : BaseUI<ComponentsActivity>() {
 
     private val customStyle = { v: Any ->
         when (v) {
@@ -22,7 +20,7 @@ class ComponentsUI(var l: View.OnClickListener?) : BaseUI<ComponentsActivity>() 
         }
     }
 
-    override fun createContentView(ui: AnkoContext<ComponentsActivity>, root: LinearLayout): View = with(root) {
+    override fun createContentView(layout: LinearLayout): View = with(layout) {
         scrollView {
             padding = dimen(R.dimen.fab_margin)
             val itemNames = listOf(

@@ -1,6 +1,7 @@
 package exam.jsc.kotlinanko.ui.layout
 
 import android.view.View
+import android.widget.LinearLayout
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.MainActivity
 import jsc.kit.itemlayout.ilArrow
@@ -9,15 +10,9 @@ import jsc.kit.itemlayout.ilLabel
 import jsc.kit.itemlayout.jscItemLayout
 import org.jetbrains.anko.*
 
-class MainUI(val l: View.OnClickListener?) : AnkoComponent<MainActivity>, AToolbarUI() {
-
-    constructor() : this(null)
-
-    override fun createView(ui: AnkoContext<MainActivity>) = with(ui) {
+class MainUI(var l: View.OnClickListener? = null) : CustomBaseUI<MainActivity>() {
+    override fun createContentView(layout: LinearLayout): View = with(layout) {
         verticalLayout {
-            fitsSystemWindows = true
-            initToolbar(this).lparams(width = matchParent, height = getActionBarSize(context))
-
             val itemNames = listOf("Template1", "Template2", "FragmentTemplate", "Component")
             val itemIds = listOf(R.id.btn_template1, R.id.btn_template2, R.id.btn_fragment_template, R.id.btn_component)
             verticalLayout {
