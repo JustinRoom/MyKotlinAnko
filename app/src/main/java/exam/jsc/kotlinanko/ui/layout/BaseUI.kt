@@ -48,7 +48,7 @@ abstract class BaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
     private fun createToolbar(layout: LinearLayout):View {
         val toolbarLayout = LayoutInflater.from(layout.context).inflate(R.layout.support_toolbar, layout)
         toolbar = toolbarLayout.find(R.id.toolbar)
-        toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_24dp
+        toolbar.navigationIconResource = R.drawable.ic_arrow_back_white_32dp
         toolbar.title = "Title"
         return toolbarLayout
     }

@@ -30,12 +30,12 @@ abstract class CustomBaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
             //toolbar
             toolbar = relativeLayout {
                 backgroundColor = resources.getColor(R.color.colorPrimary)
-                leftPadding = dip(12)
-                rightPadding = dip(12)
+                leftPadding = dip(8)
+                rightPadding = dip(8)
 
                 //title
                 titleView = textView("Title"){
-                    textSize = 18f
+                    textSize = 20f
                     textColor = Color.WHITE
                     gravity = Gravity.CENTER_HORIZONTAL
                 }.lparams {
@@ -47,7 +47,7 @@ abstract class CustomBaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
                 //left
                 navigationView = imageView {
                     padding = dip(4)
-                    imageResource = R.drawable.ic_arrow_back_white_24dp
+                    imageResource = R.drawable.ic_arrow_back_white_32dp
                 }.lparams {
                     centerVertically()
                 }
@@ -55,7 +55,7 @@ abstract class CustomBaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
                 //right
                 menuView = imageView {
                     padding = dip(4)
-                    imageResource = R.drawable.ic_grain_white_24dp
+                    imageResource = R.drawable.ic_more_vert_white_32dp
                 }.lparams {
                     alignParentRight()
                     centerVertically()
