@@ -1,5 +1,6 @@
 package exam.jsc.kotlinanko.ui.layout
 
+import android.graphics.Color
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -15,7 +16,7 @@ class ComponentsUI(var l: View.OnClickListener? = null) : BaseUI<ComponentsActiv
     private val customStyle = { v: Any ->
         when (v) {
             is TextView -> {
-                v.textSize = 15f
+                v.textColor = Color.parseColor("#FFFF4081")
             }
         }
     }
@@ -50,12 +51,13 @@ class ComponentsUI(var l: View.OnClickListener? = null) : BaseUI<ComponentsActiv
                         id = itemIds[index]
                         leftPadding = dip(16)
                         rightPadding = dip(16)
-                        topPadding = dip(8)
-                        bottomPadding = dip(8)
+                        topPadding = dip(12)
+                        bottomPadding = dip(12)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
                         setOnClickListener(l)
                     }.ilLabel {
                         text = itemNames[index]
+                        textSize = 16f
                     }.ilArrow {
                         alpha = 0.4f
                     }.lparams(matchParent, wrapContent) {

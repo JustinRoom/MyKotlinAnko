@@ -22,13 +22,13 @@ class MainUI(var l: View.OnClickListener? = null) : CustomBaseUI<MainActivity>()
                         id = itemIds[index]
                         leftPadding = dip(16)
                         rightPadding = dip(16)
-                        topPadding = dip(8)
-                        bottomPadding = dip(8)
+                        topPadding = dip(12)
+                        bottomPadding = dip(12)
                         backgroundResource = R.drawable.ripple_round_corner_white_r4
                         setOnClickListener(l)
                     }.ilLabel {
                         text = itemNames[index]
-                        textSize = 15f
+                        textSize = 16f
                     }.ilDot {
                         if (index == itemNames.lastIndex)
                             visibility = View.VISIBLE

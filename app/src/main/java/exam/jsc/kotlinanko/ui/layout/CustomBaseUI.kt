@@ -63,7 +63,7 @@ abstract class CustomBaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
 
             }.lparams(matchParent, getActionBarSize(context))
 
-            createContentView(this)
+            createContentView(this).lparams(matchParent, matchParent)
         }
     }
 

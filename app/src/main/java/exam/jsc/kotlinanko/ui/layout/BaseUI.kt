@@ -8,11 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.R
-import org.jetbrains.anko.AnkoComponent
-import org.jetbrains.anko.AnkoContext
+import org.jetbrains.anko.*
 import org.jetbrains.anko.appcompat.v7.navigationIconResource
-import org.jetbrains.anko.find
-import org.jetbrains.anko.verticalLayout
 
 /**
  * Created on 2018/3/16.
@@ -24,7 +21,7 @@ abstract class BaseUI<in T : AppCompatActivity> : AnkoComponent<T> {
     override fun createView(ui: AnkoContext<T>): View = with(ui){
         verticalLayout {
             createToolbar(this)
-            createContentView(this)
+            createContentView(this).lparams(matchParent, matchParent)
         }
     }
 
