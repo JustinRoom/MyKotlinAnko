@@ -15,6 +15,7 @@ import android.widget.TextView
 import exam.jsc.kotlinanko.JSCApplication
 import org.jetbrains.anko.*
 
+
 /**
  * Created on 2018/3/14.
  * @author jsc
@@ -51,13 +52,14 @@ abstract class ABaseActivity : AppCompatActivity() {
     }
 
     fun showCustomToast(txt: CharSequence){
-        val content = find<FrameLayout>(android.R.id.content)
+//        val content = find<FrameLayout>(android.R.id.content).
+        val decorView = window.decorView as FrameLayout
         lastToastView?.animation?.cancel()
-        content.removeView(lastToastView)
+        decorView.removeView(lastToastView)
 
         val params = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT)
         params.gravity = Gravity.CENTER_HORIZONTAL
-        params.topMargin = getActionBarSize()
+        params.topMargin = getStatusBarHeight() + getActionBarSize()
         params.leftMargin = dip(64)
         params.rightMargin = dip(64)
         val toastView = TextView(this)
@@ -68,7 +70,7 @@ abstract class ABaseActivity : AppCompatActivity() {
         toastView.textColor = Color.BLACK
         toastView.text = txt
         lastToastView = toastView
-        content.addView(toastView, params)
+        decorView.addView(toastView, params)
 
         val inAnim = TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 1.0f,
@@ -82,7 +84,7 @@ abstract class ABaseActivity : AppCompatActivity() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 toastView.postDelayed({
-                    content.removeView(toastView)
+                    decorView.removeView(toastView)
                 }, 2000)
             }
 
@@ -91,6 +93,15 @@ abstract class ABaseActivity : AppCompatActivity() {
         })
         inAnim.duration = 300
         toastView.startAnimation(inAnim)
+    }
+
+    fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
     }
 
     fun getActionBarSize(): Int {
