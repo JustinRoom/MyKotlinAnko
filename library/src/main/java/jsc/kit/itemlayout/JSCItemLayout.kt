@@ -11,12 +11,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import jsc.kit.R
 import jsc.kit.common.DotView
-import jsc.kit.common.dotView
+import jsc.kit.dotView
 import org.jetbrains.anko.*
 
 
 /**
- * Created on 2018/3/14.
+ * <p></p>
+ * <br>Email:1006368252@qq.com
+ * <br>QQ:1006368252
+ *
  * @author jsc
  */
 open class JSCItemLayout : FrameLayout {
@@ -51,7 +54,7 @@ open class JSCItemLayout : FrameLayout {
 
             //dot
             dotView = dotView {
-                gravity= Gravity.CENTER
+                gravity = Gravity.CENTER
                 dotColor = Color.RED
                 visibility = View.INVISIBLE
                 textColor = Color.WHITE

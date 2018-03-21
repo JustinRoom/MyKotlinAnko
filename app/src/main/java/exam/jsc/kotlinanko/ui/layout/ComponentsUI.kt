@@ -6,9 +6,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.ComponentsActivity
-import jsc.kit.itemlayout.ilArrow
-import jsc.kit.itemlayout.ilLabel
-import jsc.kit.itemlayout.jscItemLayout
+import jsc.kit.ilArrow
+import jsc.kit.ilLabel
+import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
 class ComponentsUI(var l: View.OnClickListener? = null) : BaseUI<ComponentsActivity>() {

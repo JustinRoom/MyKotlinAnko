@@ -5,10 +5,10 @@ import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.R
 import exam.jsc.kotlinanko.ui.activity.MainActivity
-import jsc.kit.itemlayout.ilArrow
-import jsc.kit.itemlayout.ilDot
-import jsc.kit.itemlayout.ilLabel
-import jsc.kit.itemlayout.jscItemLayout
+import jsc.kit.ilArrow
+import jsc.kit.ilDot
+import jsc.kit.ilLabel
+import jsc.kit.jscItemLayout
 import org.jetbrains.anko.*
 
 class MainUI: CustomBaseUI<MainActivity>() {

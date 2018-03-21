@@ -11,7 +11,11 @@ import android.view.View
 
 
 /**
- * Created by Justin Qin on 3/15/2018.
+ * <p></p>
+ * <br>Email:1006368252@qq.com
+ * <br>QQ:1006368252
+ *
+ * @author jsc
  */
 abstract class BaseArcHeaderView : View {
     private val path = Path()

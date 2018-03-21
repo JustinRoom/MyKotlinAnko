@@ -6,9 +6,11 @@ import android.support.annotation.IntRange
 
 
 /**
- * @param mArcHeight
- * @param direction
- * @param bitmap
+ * <p></p>
+ * <br>Email:1006368252@qq.com
+ * <br>QQ:1006368252
+ *
+ * @author jsc
  */
 class ArcHeaderDrawable(val mArcHeight: Int = 100, @IntRange(from = 0, to = 1) val direction: Int, val bitmap: Bitmap) : Drawable() {
     private val mPath: Path = Path()

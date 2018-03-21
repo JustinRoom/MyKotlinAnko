@@ -5,8 +5,8 @@ import android.view.View
 import android.widget.LinearLayout
 import exam.jsc.kotlinanko.ui.activity.component.ArcHeaderViewActivity
 import exam.jsc.kotlinanko.ui.layout.BaseUI
-import jsc.kit.archeaderview.lGradientArcHeaderView
-import jsc.kit.archeaderview.pictureArcHeaderView
+import jsc.kit.lGradientArcHeaderView
+import jsc.kit.pictureArcHeaderView
 import org.jetbrains.anko.button
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.matchParent

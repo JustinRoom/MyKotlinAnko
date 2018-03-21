@@ -8,7 +8,10 @@ import android.util.AttributeSet
 import android.widget.TextView
 
 /**
- * Created on 2018/3/19.
+ * <p></p>
+ * <br>Email:1006368252@qq.com
+ * <br>QQ:1006368252
+ *
  * @author jsc
  */
 class DotView : TextView {

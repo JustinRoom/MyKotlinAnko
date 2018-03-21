@@ -4,11 +4,14 @@ import android.content.Context
 import android.graphics.*
 import android.support.annotation.DrawableRes
 import android.util.AttributeSet
-import org.jetbrains.anko.assets
 
 
 /**
- * Created by Justin Qin on 3/15/2018.
+ * <p></p>
+ * <br>Email:1006368252@qq.com
+ * <br>QQ:1006368252
+ *
+ * @author jsc
  */
 class PictureArcHeaderView : BaseArcHeaderView {
     private var bitmap: Bitmap? = null
